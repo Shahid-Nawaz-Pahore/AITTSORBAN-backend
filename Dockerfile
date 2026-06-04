@@ -7,7 +7,7 @@ ENV NODE_ENV=production
 FROM base AS builder
 COPY package*.json ./
 # mount npm cache for faster GH Actions builds
-RUN --mount=type=cache,target=/root/.npm npm ci --production=false
+RUN npm ci --production=false
 COPY . .
 
 # ---------- Run ----------
